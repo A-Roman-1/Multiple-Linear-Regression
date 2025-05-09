@@ -1,1 +1,19 @@
 # Multiple-Linear-Regression
+
+
+By Adrian Roman
+
+1.	The Generic ML Model
+This file contains two methods, fit and predict, both designed using the object-oriented programming (OOP) principle of inheritance. The key aspect is that these two methods are abstract, meaning that whenever they are used in derived classes, they must be explicitly defined. The Model class is an abstract class that cannot be instantiated on its own, but it serves as a base for other classes to inherit from. Additionally, this class includes a self.parameters variable that stores a dictionary of parameters used during the machine learning process. I used type hints, and np.ndarray since both the parameters and predictions are arrays. I firstly tried to use dict to create a dictionary of parameters, then GitHub was not accepting this method.
+2.	Multiple Linear Regression
+This file was the most challenging part of the project. It contains a single large class that inherits from the base Model class. Here, I defined three main components: the __init__ method, which initializes the class and defines weights as a private attribute to prevent modification; the fit method, which uses the theta formula outlined in the assignment to adjust the model's weights based on the data; and the predict method, which uses the learned weights to generate predictions. In addition to these, I implemented getter and setter methods to encapsulate the weights.
+For the dataset, I created one with four continuous features describing house attributes (e.g., square meters, number of rooms), with the target variable being the house price. The algorithm has to find the optimal weights and to predict the price.
+3.	K-Nearest Neighbors (KNN)
+This file contains a single class that also inherits from the base model. It has three main methods: __init__, which defines observation and ground_truth as private attributes; fit, which stores the ground truth and observations; and predict, which applies the K-Nearest Neighbors rule to make predictions based on the nearest points. I tried to break down the predict method into smaller helper functions to better encapsulate logic and distribute tasks across different methods.
+The dataset used here describes flowers using four features (e.g., sepal width, petal length), with the goal of predicting the flower species. The main point of the data set is that the prediction was a categorical variable.
+4.	Lasso Wrapper
+This file contains a class called LassoWrapper, which inherits from the base model. The __init__ method initializes the class and loads the model to be used. The fit and predict methods work together to calculate weights and biases to generate predictions. Encapsulation wasn't really used here, since the model inherits directly from the base class and there was little risk of modifying the weights.
+The same dataset from the multiple linear regression file was used here.
+5.	Main
+The main folder is  loading both the regression and classification datasets. It first calls the multiple linear regression function, which displays the predictions, along with the weights and bias used to generate them. Next, it runs the KNN algorithm to show predictions based on the nearest neighbors and their distances. Finally, the Lasso regression model is invoked to display predictions for house prices, along with the weights and bias terms used in the prediction.
+
